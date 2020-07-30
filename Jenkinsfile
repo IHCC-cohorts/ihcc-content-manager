@@ -1,5 +1,5 @@
 def dockerHubRepo = "oicrihcc/ihcc-content-manager"
-def githubRepo = "IHCC-cohorts/ihcc-api"
+def githubRepo = "IHCC-cohorts/ihcc-content-manager"
 def commit = "UNKNOWN"
 def version = "UNKNOWN"
 
