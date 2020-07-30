@@ -1,0 +1,142 @@
+{
+  "aliases": {
+    "cohort_centric": {}
+  },
+  "settings": {
+    "index.number_of_shards": 3,
+    "index.max_result_window": 300000,
+    "analysis": {
+      "analyzer": {
+        "autocomplete_analyzed": {
+          "filter": [
+            "lowercase",
+            "edge_ngram"
+          ],
+          "tokenizer": "standard"
+        },
+        "autocomplete_prefix": {
+          "filter": [
+            "lowercase",
+            "edge_ngram"
+          ],
+          "tokenizer": "keyword"
+        },
+        "lowercase_keyword": {
+          "filter": [
+            "lowercase"
+          ],
+          "tokenizer": "keyword"
+        }
+      },
+      "filter": {
+        "edge_ngram": {
+          "max_gram": 20,
+          "min_gram": 20,
+          "side": "front",
+          "type": "edge_ngram"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "dynamic": false,
+    "date_detection": false,
+    "properties": {
+      "cohort_autocomplete": {
+        "fields": {
+          "analyzed": {
+            "analyzer": "autocomplete_prefix",
+            "search_analyzer": "lowercase_keyword",
+            "type": "text"
+          },
+          "lowercase": {
+            "analyzer": "autocomplete_prefix",
+            "type": "text"
+          },
+          "prefix": {
+            "analyzer": "autocomplete_prefix",
+            "search_analyzer": "lowercase_keyword",
+            "type": "text"
+          }
+        },
+        "type": "keyword"
+      },
+      "cohort_name": {
+        "type": "keyword",
+        "copy_to": [
+          "cohort_autocomplete"
+        ]
+      },
+      "countries": {
+        "type": "keyword",
+        "copy_to": [
+          "cohort_autocomplete"
+        ]
+      },
+      "current_enrollment": {
+        "type": "integer"
+      },
+      "pi_lead": {
+        "type": "keyword",
+        "copy_to": [
+          "cohort_autocomplete"
+        ]
+      },
+      "website": {
+        "type": "keyword"
+      },
+      "available_data_types": {
+        "properties": {
+          "genomic_data": {
+            "type": "boolean"
+          },
+          "environmental_data": {
+            "type": "boolean"
+          },
+          "biospecimens": {
+            "type": "boolean"
+          },
+          "phenotypic_clinical_data": {
+            "type": "boolean"
+          }
+        }
+      },
+      "basic_cohort_attributes": {
+        "type": "keyword"
+      },
+      "biosample": {
+        "properties": {
+          "sample_types": {
+            "type": "keyword"
+          },
+          "biosample_variables": {
+            "type": "keyword"
+          }
+        }
+      },
+      "laboratory_measures": {
+        "properties": {
+          "genomic_variables": {
+            "type": "keyword"
+          },
+          "microbiology": {
+            "type": "keyword"
+          }
+        }
+      },
+      "questionnaire_survey_data": {
+        "properties": {
+          "lifestyle_and_behaviours": {
+            "type": "keyword"
+          },
+          "physiological_measurements": {
+            "type": "keyword"
+          },
+          "socio_demographic_and_economic_characteristics": {
+            "type": "keyword"
+          }
+        }
+      }
+    }
+  }
+}
