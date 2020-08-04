@@ -13,6 +13,11 @@ import indexData from "indexData";
   });
   await indexData(esClient);
 
+  app.get("/status", (req, res) => {
+    res.json({
+      healthy: true,
+    });
+  });
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
   });
