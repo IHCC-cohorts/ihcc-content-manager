@@ -44,15 +44,15 @@ export default async (esClient: Client) => {
   console.log(`index ${ES_INDEX} is up to date`);
   await Promise.all(
     cohorts.map((cohort: object, i: number) => {
-      try {
-        return esClient.index({
+      return esClient
+        .index({
           index: ES_INDEX,
           body: cohort,
+        })
+        .catch((err) => {
+          console.log("i: ", i);
+          throw err;
         });
-      } catch (err) {
-        console.log("i: ", i);
-        throw err;
-      }
     })
   );
 };

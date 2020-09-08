@@ -62,7 +62,10 @@ type Raw = {
   };
 };
 
-const toEsDocument = (allData: Raw[]) => {
+/**
+ * This is used just for demo.
+ */
+const generateRandomSampleTypes = () => {
   const randomSampleTypeDistribution = [
     "saliva",
     "blood",
@@ -75,19 +78,22 @@ const toEsDocument = (allData: Raw[]) => {
     "urine",
     "urine",
   ];
-  return (raw: Raw, i: number): MappingShape => {
-    const toSpaceCase = (str: string) => str.split("_").join(" ");
-    const additionalBiosampleTypeCounts = Math.floor(Math.random() * 2) + 1;
-    const randomAdditionalSamples = _.range(
-      0,
-      additionalBiosampleTypeCounts
-    ).map(() => {
+  const additionalBiosampleTypeCounts = Math.floor(Math.random() * 2) + 1;
+  const randomSampleTypes = _.range(0, additionalBiosampleTypeCounts).map(
+    () => {
       const index = Math.floor(
         Math.random() * randomSampleTypeDistribution.length
       );
       return randomSampleTypeDistribution[index];
-    });
+    }
+  );
+  return randomSampleTypes;
+};
 
+const toEsDocument = (allData: Raw[]) => {
+  return (raw: Raw, i: number): MappingShape => {
+    const toSpaceCase = (str: string) => str.split("_").join(" ");
+    const randomSampleTypes: string[] = generateRandomSampleTypes();
     const sanitizeName = (name: string) => {
       return Object.entries({
         "√∂": "ö",
@@ -127,7 +133,7 @@ const toEsDocument = (allData: Raw[]) => {
         biosample: {
           biosample_variables: [],
           sample_types: _(raw.biosample?.sample_type || [])
-            // .concat(randomAdditionalSamples)
+            // .concat(randomSampleTypes) // use this if need random fake data
             .uniq()
             .value(),
         },
