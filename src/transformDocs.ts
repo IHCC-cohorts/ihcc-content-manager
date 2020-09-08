@@ -127,7 +127,7 @@ const toEsDocument = (allData: Raw[]) => {
         biosample: {
           biosample_variables: [],
           sample_types: _(raw.biosample?.sample_type || [])
-            .concat(randomAdditionalSamples)
+            // .concat(randomAdditionalSamples)
             .uniq()
             .value(),
         },
