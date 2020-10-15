@@ -1,7 +1,9 @@
 import { Client } from "@elastic/elasticsearch";
 import indexSetting from "./assets/cohort_centric.json";
-import transformDocs from "transformDocs";
+import transformDocs, { Raw } from "transformDocs";
 import { ES_INDEX } from "config";
+import demoData from "./assets/raw_data.json";
+import realData from "./assets/real_data.json";
 
 export const initIndexMapping = async (index: string, esClient: Client) => {
   const serializedIndexName = index.toLowerCase();
@@ -18,8 +20,17 @@ const sleep = () =>
     }, 500);
   });
 
-export default async (esClient: Client) => {
-  const cohorts = transformDocs();
+const indexData = async (config: {
+  esClient: Client;
+  includeDemoData: boolean;
+  includeRealData: boolean;
+}) => {
+  const { esClient, includeDemoData, includeRealData } = config;
+  const dataToTransform = [
+    ...((includeRealData ? realData : []) as Raw[]),
+    ...((includeDemoData ? demoData : []) as Raw[]),
+  ];
+  const cohorts = transformDocs(dataToTransform);
   await esClient.indices
     .delete({
       index: ES_INDEX,
@@ -56,3 +67,4 @@ export default async (esClient: Client) => {
     })
   );
 };
+export default indexData;
