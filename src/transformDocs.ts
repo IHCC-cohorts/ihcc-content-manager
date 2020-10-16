@@ -1,5 +1,4 @@
 import _ from "lodash";
-import raw from "./assets/raw_data.json";
 
 type MappingShape = {
   cohort_autocomplete?: string;
@@ -30,7 +29,7 @@ type MappingShape = {
   };
 };
 
-type Raw = {
+export type Raw = {
   prefix?: string;
   cohort_name?: string;
   countries?: string[];
@@ -62,7 +61,10 @@ type Raw = {
   };
 };
 
-const toEsDocument = (allData: Raw[]) => {
+/**
+ * This is used just for demo.
+ */
+const generateRandomSampleTypes = () => {
   const randomSampleTypeDistribution = [
     "saliva",
     "blood",
@@ -75,19 +77,22 @@ const toEsDocument = (allData: Raw[]) => {
     "urine",
     "urine",
   ];
-  return (raw: Raw, i: number): MappingShape => {
-    const toSpaceCase = (str: string) => str.split("_").join(" ");
-    const additionalBiosampleTypeCounts = Math.floor(Math.random() * 2) + 1;
-    const randomAdditionalSamples = _.range(
-      0,
-      additionalBiosampleTypeCounts
-    ).map(() => {
+  const additionalBiosampleTypeCounts = Math.floor(Math.random() * 2) + 1;
+  const randomSampleTypes = _.range(0, additionalBiosampleTypeCounts).map(
+    () => {
       const index = Math.floor(
         Math.random() * randomSampleTypeDistribution.length
       );
       return randomSampleTypeDistribution[index];
-    });
+    }
+  );
+  return randomSampleTypes;
+};
 
+const toEsDocument = (allData: Raw[]) => {
+  return (rawEntry: Raw, i: number): MappingShape => {
+    const toSpaceCase = (str: string) => str.split("_").join(" ");
+    const randomSampleTypes: string[] = generateRandomSampleTypes();
     const sanitizeName = (name: string) => {
       return Object.entries({
         "√∂": "ö",
@@ -99,11 +104,11 @@ const toEsDocument = (allData: Raw[]) => {
     };
     try {
       const output = {
-        cohort_name: raw.cohort_name,
+        cohort_name: rawEntry.cohort_name,
         countries:
-          raw.countries?.map((country) => {
+          rawEntry.countries?.map((country) => {
             if (country === "") {
-              if (raw.cohort_name === "NICCC") {
+              if (rawEntry.cohort_name === "NICCC") {
                 return "USA";
               }
             }
@@ -115,9 +120,9 @@ const toEsDocument = (allData: Raw[]) => {
               } as { [k: string]: string })[country] || country
             );
           }) || [],
-        current_enrollment: raw.current_enrollment || 0,
+        current_enrollment: rawEntry.current_enrollment || 0,
         basic_cohort_attributes: Object.values(
-          raw.basic_cohort_attributes || {}
+          rawEntry.basic_cohort_attributes || {}
         )
           .reduce<string[]>(
             (acc, attributes) => [...acc, ...(attributes || [])],
@@ -126,12 +131,12 @@ const toEsDocument = (allData: Raw[]) => {
           .map(toSpaceCase),
         biosample: {
           biosample_variables: [],
-          sample_types: _(raw.biosample?.sample_type || [])
-            .concat(randomAdditionalSamples)
+          sample_types: _(rawEntry.biosample?.sample_type || [])
+            // .concat(randomSampleTypes) // use this if need random fake data
             .uniq()
             .value(),
         },
-        available_data_types: raw.available_data_types || {
+        available_data_types: rawEntry.available_data_types || {
           biospecimens: false,
           environmental_data: false,
           genomic_data: false,
@@ -139,23 +144,23 @@ const toEsDocument = (allData: Raw[]) => {
         },
         laboratory_measures: {
           genomic_variables: [],
-          microbiology: (raw.laboratory_measures?.microbiology || []).map(
+          microbiology: (rawEntry.laboratory_measures?.microbiology || []).map(
             toSpaceCase
           ),
         },
-        pi_lead: raw.pi_lead ? sanitizeName(raw.pi_lead) : "",
+        pi_lead: rawEntry.pi_lead ? sanitizeName(rawEntry.pi_lead) : "",
         questionnaire_survey_data: {
           socio_demographic_and_economic_characteristics: (
-            raw.questionnaire_survey_data
+            rawEntry.questionnaire_survey_data
               .socio_demographic_and_economic_characteristics || []
           ).map(toSpaceCase),
           lifestyle_and_behaviours: (
-            raw.questionnaire_survey_data.lifestyle_and_behaviours || []
+            rawEntry.questionnaire_survey_data.lifestyle_and_behaviours || []
           ).map(toSpaceCase),
           physiological_measurements: [
-            ...(raw.questionnaire_survey_data.physiological_measurements
+            ...(rawEntry.questionnaire_survey_data.physiological_measurements
               ?.anthropometry || []),
-            ...(raw.questionnaire_survey_data.physiological_measurements
+            ...(rawEntry.questionnaire_survey_data.physiological_measurements
               ?.circulation_and_respiration || []),
           ].map(toSpaceCase),
         },
@@ -165,7 +170,8 @@ const toEsDocument = (allData: Raw[]) => {
               "http://www.cdc.go.kr/contents.es?mid=a50401010100",
             "Golestan Cohort Study":
               "https://dceg2.cancer.gov/gemshare/studies/GCS/",
-          } as { [k: string]: string })[raw.cohort_name || ""] || raw.website,
+          } as { [k: string]: string })[rawEntry.cohort_name || ""] ||
+          rawEntry.website,
       };
       console.log("output: ", output);
       return output;
@@ -176,7 +182,7 @@ const toEsDocument = (allData: Raw[]) => {
   };
 };
 
-export default () => {
+export default (raw: Raw[]) => {
   // @ts-ignore it's ok we want to model the type explicitly
   const output = raw.map(toEsDocument(raw as Raw));
   return output;

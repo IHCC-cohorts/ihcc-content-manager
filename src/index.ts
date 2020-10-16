@@ -1,5 +1,5 @@
 import express from "express";
-import { PORT, ES_HOSTS } from "config";
+import { PORT, ES_HOSTS, INCLUDE_DEMO_DATA, INCLUDE_REAL_DATA } from "config";
 import morgan from "morgan";
 import { Client } from "@elastic/elasticsearch";
 import indexData from "indexData";
@@ -11,7 +11,11 @@ import indexData from "indexData";
   const esClient = new Client({
     nodes: ES_HOSTS,
   });
-  await indexData(esClient);
+  await indexData({
+    esClient,
+    includeDemoData: INCLUDE_DEMO_DATA,
+    includeRealData: INCLUDE_REAL_DATA,
+  });
 
   app.get("/status", (req, res) => {
     res.json({
