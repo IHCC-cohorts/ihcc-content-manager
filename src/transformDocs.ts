@@ -26,6 +26,10 @@ type MappingShape = {
     lifestyle_and_behaviours: string[];
     physiological_measurements: string[];
     socio_demographic_and_economic_characteristics: string[];
+    diseases: string[];
+    medication: string[];
+    non_pharmacological_interventions: string[];
+    healthcare_information: string[];
   };
 };
 
@@ -58,6 +62,10 @@ export type Raw = {
       circulation_and_respiration?: string[];
     };
     socio_demographic_and_economic_characteristics?: string[];
+    diseases?: string[];
+    medication?: string[];
+    non_pharmacological_interventions?: string[];
+    healthcare_information?: string[];
   };
 };
 
@@ -103,7 +111,7 @@ const toEsDocument = (allData: Raw[]) => {
       }).reduce((name, [key, value]) => name?.split(key).join(value), name);
     };
     try {
-      const output = {
+      const output: MappingShape = {
         cohort_name: rawEntry.cohort_name,
         countries:
           rawEntry.countries?.map((country) => {
@@ -163,6 +171,13 @@ const toEsDocument = (allData: Raw[]) => {
             ...(rawEntry.questionnaire_survey_data.physiological_measurements
               ?.circulation_and_respiration || []),
           ].map(toSpaceCase),
+          diseases: rawEntry.questionnaire_survey_data.diseases || [],
+          healthcare_information:
+            rawEntry.questionnaire_survey_data.healthcare_information || [],
+          medication: rawEntry.questionnaire_survey_data.medication || [],
+          non_pharmacological_interventions:
+            rawEntry.questionnaire_survey_data
+              .non_pharmacological_interventions || [],
         },
         website:
           ({

@@ -134,6 +134,18 @@
           },
           "socio_demographic_and_economic_characteristics": {
             "type": "keyword"
+          },
+          "diseases": {
+            "type": "keyword"
+          },
+          "medication": {
+            "type": "keyword"
+          },
+          "non_pharmacological_interventions": {
+            "type": "keyword"
+          },
+          "healthcare_information": {
+            "type": "keyword"
           }
         }
       }

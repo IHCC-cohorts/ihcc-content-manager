@@ -54,10 +54,11 @@ const indexData = async (config: {
     .then(sleep);
   console.log(`index ${ES_INDEX} is up to date`);
   await Promise.all(
-    cohorts.map((cohort: object, i: number) => {
+    cohorts.map((cohort, i: number) => {
       return esClient
         .index({
           index: ES_INDEX,
+          id: cohort.cohort_name,
           body: cohort,
         })
         .catch((err) => {
