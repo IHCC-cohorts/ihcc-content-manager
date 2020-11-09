@@ -171,13 +171,19 @@ const toEsDocument = (allData: Raw[]) => {
             ...(rawEntry.questionnaire_survey_data.physiological_measurements
               ?.circulation_and_respiration || []),
           ].map(toSpaceCase),
-          diseases: rawEntry.questionnaire_survey_data.diseases || [],
-          healthcare_information:
-            rawEntry.questionnaire_survey_data.healthcare_information || [],
-          medication: rawEntry.questionnaire_survey_data.medication || [],
-          non_pharmacological_interventions:
+          diseases: (rawEntry.questionnaire_survey_data.diseases || []).map(
+            toSpaceCase
+          ),
+          healthcare_information: (
+            rawEntry.questionnaire_survey_data.healthcare_information || []
+          ).map(toSpaceCase),
+          medication: (rawEntry.questionnaire_survey_data.medication || []).map(
+            toSpaceCase
+          ),
+          non_pharmacological_interventions: (
             rawEntry.questionnaire_survey_data
-              .non_pharmacological_interventions || [],
+              .non_pharmacological_interventions || []
+          ).map(toSpaceCase),
         },
         website:
           ({
