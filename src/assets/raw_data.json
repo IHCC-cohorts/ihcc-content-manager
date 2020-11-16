@@ -1,317 +1,5 @@
 [
   {
-    "available_data_types": {
-      "biospecimens": true,
-      "environmental_data": true,
-      "genomic_data": false,
-      "phenotypic_clinical_data": true
-    },
-    "basic_cohort_attributes": {
-      "demographic_data": [],
-      "population_data": [
-        "location"
-      ]
-    },
-    "biosample": {
-      "sample_type": [
-        "other_biosample_type",
-        "blood"
-      ]
-    },
-    "cohort_name": "Golestan Cohort Study",
-    "countries": [
-      "Iran"
-    ],
-    "current_enrollment": 50000,
-    "enrollment_period": "2004:2008",
-    "laboratory_measures": [],
-    "pi_lead": "Reza Malekzadeh, Christian Abnet, Paolo Boffetta, Paul Brennan, Farin Kamangar, Arash Etemadi",
-    "questionnaire_survey_data": {
-      "diseases": [
-        "respiratory_system",
-        "oncological",
-        "circulatory_system",
-        "endocrine_nutritional_metabolic_disorders"
-      ],
-      "general_variables": [
-        "signs_and_symptoms",
-        "physician_practitioner_info"
-      ],
-      "lifestyle_and_behaviours": [
-        "tobacco",
-        "drugs",
-        "physical_activity",
-        "nutrition",
-        "alcohol"
-      ],
-      "medication": [
-        "prescription",
-        "associated_diseases"
-      ],
-      "non_pharmacological_interventions": [
-        "surgical_interventions"
-      ],
-      "physiological_measurements": {
-        "anthropometry": [
-          "height",
-          "weight"
-        ],
-        "circulation_and_respiration": [
-          "blood_pressure",
-          "heart_rate_HR"
-        ]
-      },
-      "socio_demographic_and_economic_characteristics": [
-        "family_and_household_structure",
-        "age_birthdate",
-        "residence",
-        "gender",
-        "education",
-        "ethnicity_race"
-      ]
-    },
-    "survey_administration": [
-      "unique_identifiers",
-      "date_and_time_related_information"
-    ],
-    "target_enrollment": null,
-    "website": "https://dceg2.cancer.gov/gemshare/"
-  },
-  {
-    "available_data_types": {
-      "biospecimens": true,
-      "environmental_data": true,
-      "genomic_data": true,
-      "phenotypic_clinical_data": true
-    },
-    "biosample": {
-      "sample_type": [
-        "blood",
-        "urine"
-      ]
-    },
-    "cohort_name": "Korean Genome and Epidemiology Study (KoGES)",
-    "countries": [
-      "South Korea",
-      "Vietnam",
-      "Cambodia",
-      "Japan",
-      "China"
-    ],
-    "current_enrollment": 235000,
-    "enrollment_period": "2001:2013",
-    "pi_lead": "Sung Soo Kim",
-    "questionnaire_survey_data": {
-      "diseases": [
-        "mental_and_behaviour_disorders",
-        "digestive_system",
-        "respiratory_system"
-      ],
-      "general_variables": [
-        "signs_and_symptoms",
-        "reproduction"
-      ],
-      "lifestyle_and_behaviours": [
-        "tobacco",
-        "physical_activity",
-        "nutrition",
-        "alcohol",
-        "sleep"
-      ],
-      "medication": [],
-      "non_pharmacological_interventions": [
-        "surgical_interventions"
-      ],
-      "physiological_measurements": {
-        "anthropometry": [
-          "height",
-          "weight"
-        ],
-        "circulation_and_respiration": [
-          "blood_pressure",
-          "heart_rate_HR"
-        ]
-      },
-      "socio_demographic_and_economic_characteristics": [
-        "family_and_household_structure",
-        "education"
-      ]
-    },
-    "target_enrollment": null,
-    "website": "http://www.nih.go.kr/NIH/eng/contents/NihEngContentView.jsp?cid=65199&menuIds=HOME004-MNU2261-MNU2262-MNU2263-MNU2264"
-  },
-  {
-    "available_data_types": {
-      "biospecimens": true,
-      "environmental_data": false,
-      "genomic_data": true,
-      "phenotypic_clinical_data": true
-    },
-    "basic_cohort_attributes": {
-      "general_variables": [
-        "aims_and_objectives"
-      ],
-      "population_data": [
-        "location"
-      ]
-    },
-    "cohort_name": "Genomics England / 100,000 Genomes Project",
-    "countries": [
-      "England"
-    ],
-    "current_enrollment": 100000,
-    "enrollment_period": "2013:2018",
-    "laboratory_measures": [],
-    "pi_lead": "Mark Caulfield",
-    "questionnaire_survey_data": {
-      "diseases": [
-        "nervous_system",
-        "respiratory_system",
-        "oncological",
-        "circulatory_system",
-        "endocrine_nutritional_metabolic_disorders",
-        "mental_and_behaviour_disorders"
-      ],
-      "general_variables": [
-        "signs_and_symptoms",
-        "physician_practitioner_info",
-        "reproduction"
-      ],
-      "lifestyle_and_behaviours": [
-        "alcohol"
-      ],
-      "medication": [
-        "prescription",
-        "drug_responses",
-        "administration"
-      ],
-      "non_pharmacological_interventions": [
-        "surgical_interventions"
-      ],
-      "physiological_measurements": {
-        "anthropometry": [
-          "height",
-          "weight"
-        ]
-      },
-      "socio_demographic_and_economic_characteristics": [
-        "family_and_household_structure",
-        "age_birthdate",
-        "residence",
-        "gender",
-        "education",
-        "ethnicity_race",
-        "biological_sex"
-      ]
-    },
-    "survey_administration": [
-      "unique_identifiers",
-      "date_and_time_related_information"
-    ],
-    "target_enrollment": 500000,
-    "website": "https://www.genomicsengland.co.uk/"
-  },
-  {
-    "available_data_types": {
-      "biospecimens": true,
-      "environmental_data": false,
-      "genomic_data": false,
-      "phenotypic_clinical_data": true
-    },
-    "cohort_name": "SAPRIN (South African Population Research Infrastructure Network)",
-    "countries": [
-      "South Africa"
-    ],
-    "current_enrollment": 350000,
-    "enrollment_period": "1993:ongoing",
-    "laboratory_measures": [],
-    "pi_lead": "Kobus Herbst",
-    "questionnaire_survey_data": {
-      "diseases": [
-        "endocrine_nutritional_metabolic_disorders"
-      ],
-      "general_variables": [
-        "life_stage_time_point",
-        "reproduction"
-      ],
-      "non_pharmacological_interventions": [],
-      "socio_demographic_and_economic_characteristics": [
-        "family_and_household_structure",
-        "ethnicity_race",
-        "age_birthdate",
-        "biological_sex",
-        "residence"
-      ]
-    },
-    "survey_administration": [
-      "date_and_time_related_information",
-      "unique_identifiers"
-    ],
-    "target_enrollment": 700000,
-    "website": "http://saprin.mrc.ac.za/"
-  },
-  {
-    "available_data_types": {
-      "biospecimens": true,
-      "environmental_data": false,
-      "genomic_data": true,
-      "phenotypic_clinical_data": true
-    },
-    "biosample": {
-      "sample_type": [
-        "other_biosample_type",
-        "saliva",
-        "blood",
-        "urine"
-      ]
-    },
-    "cohort_name": "Africa Health Research Institute (AHRI) Population Cohort",
-    "countries": [
-      "South Africa"
-    ],
-    "current_enrollment": 130000,
-    "enrollment_period": "2000:ongoing",
-    "laboratory_measures": [],
-    "pi_lead": "Deenan Pillay",
-    "questionnaire_survey_data": {
-      "diseases": [
-        "respiratory_system",
-        "oncological",
-        "circulatory_system",
-        "endocrine_nutritional_metabolic_disorders"
-      ],
-      "general_variables": [
-        "signs_and_symptoms",
-        "reproduction"
-      ],
-      "lifestyle_and_behaviours": [
-        "tobacco",
-        "nutrition",
-        "alcohol"
-      ],
-      "medication": [
-        "associated_diseases"
-      ],
-      "non_pharmacological_interventions": [],
-      "physiological_measurements": {
-        "anthropometry": [
-          "height",
-          "weight"
-        ],
-        "circulation_and_respiration": [
-          "blood_pressure",
-          "heart_rate_HR"
-        ]
-      }
-    },
-    "survey_administration": [
-      "unique_identifiers",
-      "date_and_time_related_information"
-    ],
-    "target_enrollment": 130000,
-    "website": "https://www.ahri.org"
-  },
-  {
     "cohort_name": "23andMe",
     "countries": [
       "USA"
@@ -1118,7 +806,7 @@
     "countries": [
       "Sweden"
     ],
-    "pi_lead": "Lars Lind and S√∂lve Elmst√•lh",
+    "pi_lead": "Lars Lind and S\u221a\u2202lve Elmst\u221a\u2022lh",
     "website": "https://www.epihealth.se/vad-ar-epihealth/",
     "current_enrollment": 25000,
     "target_enrollment": 25000,
@@ -1225,7 +913,7 @@
     "countries": [
       "Finland"
     ],
-    "pi_lead": "Helj√§-Marja Surcel",
+    "pi_lead": "Helj\u221a\u00a7-Marja Surcel",
     "website": "www.esis.fi",
     "current_enrollment": 950000,
     "target_enrollment": null,
@@ -2319,7 +2007,7 @@
     "countries": [
       "Norway"
     ],
-    "pi_lead": "√òyvind N√¶ss",
+    "pi_lead": "\u221a\u00f2yvind N\u221a\u00b6ss",
     "website": "",
     "current_enrollment": 5266270,
     "target_enrollment": null,
@@ -3010,7 +2698,7 @@
     ]
   },
   {
-    "cohort_name": "UKLWC (UK Collaborative Trial of Ovarian Cancer Screening) Longitudinal Women‚Äôs Cohort UKLWC",
+    "cohort_name": "UKLWC (UK Collaborative Trial of Ovarian Cancer Screening) Longitudinal Women\u201a\u00c4\u00f4s Cohort UKLWC",
     "countries": [
       "England",
       "Wales",
