@@ -1,0 +1,32 @@
+openapi: 3.0.0
+info:
+  title: Platform-API
+  version: 1.0.0
+tags:
+
+paths:
+  "/sync":
+    post:
+      summary: syncs elasticsearch data with a json provided at sourceUrl
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sourceUrl:
+                  type: string
+                secret:
+                  type: string
+      responses:
+        "200":
+          description: "the successful response for syncing data"
+        "401":
+          description: invalid secret
+          content:
+            application/json:
+              schema:
+                example: '{"message": "invalid jwt"}'
+                type: string
+        "500":
+          description: Internal server error
