@@ -6,6 +6,7 @@ import path from "path";
 export default () => {
   const router = express.Router();
   const mainDoc = yaml.load(path.join(__dirname, "./assets/swagger.yaml"));
+  console.log('mainDoc: ', mainDoc)
   router.use("/", swaggerUi.serve, swaggerUi.setup(mainDoc));
   return router;
 };

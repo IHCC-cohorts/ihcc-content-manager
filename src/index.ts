@@ -11,6 +11,8 @@ import morgan from "morgan";
 import { Client } from "@elastic/elasticsearch";
 import indexData from "indexData";
 import apiDocs from "./apiDocs";
+import { json } from "body-parser";
+import fetch from "node-fetch";
 
 (async () => {
   const app = express();
@@ -35,11 +37,22 @@ import apiDocs from "./apiDocs";
   if (!!SYNC_SECRET) {
     app.post<{}, {}, { sourceUrl: string; secret: string }>(
       "/sync",
+      json(),
       async (req, res) => {
+        console.log("indexing data: ", req.body);
         const { sourceUrl, secret } = req.body;
         if (secret === SYNC_SECRET) {
-          const rawData = await fetch(sourceUrl).then((res) => res.json());
-          await indexData(rawData);
+          try {
+            const rawData = await fetch(sourceUrl).then((res) => res.json());
+            await indexData({
+              esClient,
+              includeDemoData: false,
+              includeRealData: false,
+              inputData: rawData,
+            });
+          } catch (err) {
+            res.status(500).send(err.message).end();
+          }
           res.status(200).end();
         } else {
           res.status(401).end();
@@ -51,7 +64,7 @@ import apiDocs from "./apiDocs";
       "[WARNING!!!] SYNC_SECRET is not set, /sync endpoint will not be available"
     );
   }
-  app.get("/api-docs", apiDocs());
+  app.use("/api-docs", apiDocs());
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
   });
