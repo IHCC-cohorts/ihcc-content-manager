@@ -14,7 +14,7 @@ export const initIndexMapping = async (index: string, esClient: Client) => {
 };
 
 const sleep = () =>
-  new Promise((resolve) => {
+  new Promise<void>((resolve) => {
     setTimeout(() => {
       resolve();
     }, 500);
@@ -24,9 +24,10 @@ const indexData = async (config: {
   esClient: Client;
   includeDemoData: boolean;
   includeRealData: boolean;
+  inputData?: Raw[];
 }) => {
-  const { esClient, includeDemoData, includeRealData } = config;
-  const dataToTransform = [
+  const { esClient, includeDemoData, includeRealData, inputData } = config;
+  const dataToTransform = inputData || [
     ...((includeRealData ? realData : []) as Raw[]),
     ...((includeDemoData ? demoData : []) as Raw[]),
   ];
