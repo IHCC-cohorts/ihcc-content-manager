@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "transformData": "ts-node ./transformDocs",
-    "indexData": "ts-node ./indexData",
+    "reindex": "ts-node ./src/scripts/reindex",
     "build": "tsc",
-    "start-prod": "NODE_PATH=./dist node ./dist"
+    "start-prod": "NODE_PATH=./dist node ./dist",
+    "dev": "npm run build && npm run start-prod"
   },
   "author": "",
   "license": "ISC",

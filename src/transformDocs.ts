@@ -121,11 +121,13 @@ const toEsDocument = (allData: Raw[]) => {
               }
             }
             return (
-              ({
-                "Republic of Korea": "South Korea",
-                "South Korea": "South Korea",
-                Korea: "South Korea",
-              } as { [k: string]: string })[country] || country
+              (
+                {
+                  "Republic of Korea": "South Korea",
+                  "South Korea": "South Korea",
+                  Korea: "South Korea",
+                } as { [k: string]: string }
+              )[country] || country
             );
           }) || [],
         current_enrollment: rawEntry.current_enrollment || 0,
@@ -186,15 +188,15 @@ const toEsDocument = (allData: Raw[]) => {
           ).map(toSpaceCase),
         },
         website:
-          ({
-            "Korean Genome and Epidemiology Study (KoGES)":
-              "http://www.cdc.go.kr/contents.es?mid=a50401010100",
-            "Golestan Cohort Study":
-              "https://dceg2.cancer.gov/gemshare/studies/GCS/",
-          } as { [k: string]: string })[rawEntry.cohort_name || ""] ||
-          rawEntry.website,
+          (
+            {
+              "Korean Genome and Epidemiology Study (KoGES)":
+                "http://www.cdc.go.kr/contents.es?mid=a50401010100",
+              "Golestan Cohort Study":
+                "https://dceg2.cancer.gov/gemshare/studies/GCS/",
+            } as { [k: string]: string }
+          )[rawEntry.cohort_name || ""] || rawEntry.website,
       };
-      console.log("output: ", output);
       return output;
     } catch (err) {
       console.log("err: ", err);
