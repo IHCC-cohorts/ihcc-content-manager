@@ -32,6 +32,7 @@ type MappingShape = {
   countries: string[];
   current_enrollment: number;
   dictionary_harmonized: boolean;
+  enrollment_period?: string;
   irb_approved_data_sharing: string;
   laboratory_measures: {
     genomic_variables: string[];
@@ -39,13 +40,17 @@ type MappingShape = {
   };
   pi_lead?: string;
   questionnaire_survey_data: {
-    lifestyle_and_behaviours: string[];
-    physiological_measurements: string[];
-    socio_demographic_and_economic_characteristics: string[];
     diseases: string[];
+    healthcare_information: string[];
+    lifestyle_and_behaviours: string[];
     medication: string[];
     non_pharmacological_interventions: string[];
-    healthcare_information: string[];
+    perception_of_health_and_quality_of_life: string[];
+    physical_environment: string[];
+    physiological_measurements: string[];
+    survey_administration: string[];
+    socio_demographic_and_economic_characteristics: string[];
+    other_questionnaire_survey_data: string[];
   };
   target_enrollment?: number;
   type_of_cohort: {
@@ -91,22 +96,27 @@ export type Raw = {
   countries?: string[];
   current_enrollment?: number;
   dictionary_harmonized?: boolean;
+  enrollment_period?: string;
   irb_approved_data_sharing?: string;
   laboratory_measures?: {
     microbiology?: string[];
   };
   pi_lead?: string;
   questionnaire_survey_data?: {
+    diseases?: string[];
+    healthcare_information?: string[];
     lifestyle_and_behaviours?: string[];
+    medication?: string[];
+    non_pharmacological_interventions?: string[];
+    perception_of_health_and_quality_of_life?: string[];
+    physical_environment?: string[];
     physiological_measurements?: {
       anthropometry?: string[];
       circulation_and_respiration?: string[];
     };
     socio_demographic_and_economic_characteristics?: string[];
-    diseases?: string[];
-    medication?: string[];
-    non_pharmacological_interventions?: string[];
-    healthcare_information?: string[];
+    survey_administration?: string[];
+    other_questionnaire_survey_data?: string[];
   };
   target_enrollment?: number;
   type_of_cohort?: {
@@ -232,6 +242,7 @@ const toEsDocument = (allData: Raw[]) => {
           }) || [],
         current_enrollment: rawEntry.current_enrollment || 0,
         dictionary_harmonized: rawEntry.dictionary_harmonized || false,
+        enrollment_period: rawEntry?.enrollment_period?.replace(/nan/g, " - "),
         irb_approved_data_sharing: rawEntry.irb_approved_data_sharing || "0%",
         laboratory_measures: {
           genomic_variables: [],
@@ -241,24 +252,14 @@ const toEsDocument = (allData: Raw[]) => {
         },
         pi_lead: rawEntry.pi_lead ? sanitizeName(rawEntry.pi_lead) : "",
         questionnaire_survey_data: {
-          socio_demographic_and_economic_characteristics: (
-            rawEntry.questionnaire_survey_data
-              ?.socio_demographic_and_economic_characteristics || []
-          ).map(toSpaceCase),
-          lifestyle_and_behaviours: (
-            rawEntry.questionnaire_survey_data?.lifestyle_and_behaviours || []
-          ).map(toSpaceCase),
-          physiological_measurements: [
-            ...(rawEntry.questionnaire_survey_data?.physiological_measurements
-              ?.anthropometry || []),
-            ...(rawEntry.questionnaire_survey_data?.physiological_measurements
-              ?.circulation_and_respiration || []),
-          ].map(toSpaceCase),
           diseases: (rawEntry.questionnaire_survey_data?.diseases || []).map(
             toSpaceCase
           ),
           healthcare_information: (
             rawEntry.questionnaire_survey_data?.healthcare_information || []
+          ).map(toSpaceCase),
+          lifestyle_and_behaviours: (
+            rawEntry.questionnaire_survey_data?.lifestyle_and_behaviours || []
           ).map(toSpaceCase),
           medication: (
             rawEntry.questionnaire_survey_data?.medication || []
@@ -266,6 +267,30 @@ const toEsDocument = (allData: Raw[]) => {
           non_pharmacological_interventions: (
             rawEntry.questionnaire_survey_data
               ?.non_pharmacological_interventions || []
+          ).map(toSpaceCase),
+          perception_of_health_and_quality_of_life: (
+            rawEntry.questionnaire_survey_data
+              ?.perception_of_health_and_quality_of_life || []
+          ).map(toSpaceCase),
+          physical_environment: (
+            rawEntry.questionnaire_survey_data?.physical_environment || []
+          ).map(toSpaceCase),
+          physiological_measurements: [
+            ...(rawEntry.questionnaire_survey_data?.physiological_measurements
+              ?.anthropometry || []),
+            ...(rawEntry.questionnaire_survey_data?.physiological_measurements
+              ?.circulation_and_respiration || []),
+          ].map(toSpaceCase),
+          socio_demographic_and_economic_characteristics: (
+            rawEntry.questionnaire_survey_data
+              ?.socio_demographic_and_economic_characteristics || []
+          ).map(toSpaceCase),
+          survey_administration: (
+            rawEntry.questionnaire_survey_data?.survey_administration || []
+          ).map(toSpaceCase),
+          other_questionnaire_survey_data: (
+            rawEntry.questionnaire_survey_data
+              ?.other_questionnaire_survey_data || []
           ).map(toSpaceCase),
         },
         target_enrollment: rawEntry.target_enrollment,

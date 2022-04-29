@@ -105,6 +105,9 @@
       "dictionary_harmonized": {
         "type": "boolean"
       },
+      "enrollment_period": {
+        "type": "keyword"
+      },
       "irb_approved_data_sharing": {
         "type": "keyword"
       },
@@ -124,16 +127,13 @@
       },
       "questionnaire_survey_data": {
         "properties": {
-          "lifestyle_and_behaviours": {
-            "type": "keyword"
-          },
-          "physiological_measurements": {
-            "type": "keyword"
-          },
-          "socio_demographic_and_economic_characteristics": {
-            "type": "keyword"
-          },
           "diseases": {
+            "type": "keyword"
+          },
+          "healthcare_information": {
+            "type": "keyword"
+          },
+          "lifestyle_and_behaviours": {
             "type": "keyword"
           },
           "medication": {
@@ -142,7 +142,22 @@
           "non_pharmacological_interventions": {
             "type": "keyword"
           },
-          "healthcare_information": {
+          "perception_of_health_and_quality_of_life": {
+            "type": "keyword"
+          },
+          "physical_environment": {
+            "type": "keyword"
+          },
+          "physiological_measurements": {
+            "type": "keyword"
+          },
+          "socio_demographic_and_economic_characteristics": {
+            "type": "keyword"
+          },
+          "survey_administration": {
+            "type": "keyword"
+          },
+          "other_questionnaire_survey_data": {
             "type": "keyword"
           }
         }
