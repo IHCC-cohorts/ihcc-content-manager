@@ -73,7 +73,7 @@ export type Raw = {
     genomic_data_wes?: string;
     genomic_data_array?: string;
     genomic_data_other?: string;
-    demographic_data?: boolean;
+    demographic_data?: string;
     imaging_data?: string;
     participants_address_or_geocode_data?: string;
     electronic_health_record_data?: string;
@@ -91,11 +91,11 @@ export type Raw = {
     european_or_white?: string;
     hispanic_latino_or_spanish?: string;
     middle_eastern_or_north_african?: string;
-    other?: boolean;
+    other?: string;
   };
   countries?: string[];
   current_enrollment?: number;
-  dictionary_harmonized?: boolean;
+  dictionary_harmonized?: string;
   enrollment_period?: string;
   irb_approved_data_sharing?: string;
   laboratory_measures?: {
@@ -120,11 +120,11 @@ export type Raw = {
   };
   target_enrollment?: number;
   type_of_cohort?: {
-    case_control?: boolean;
-    cross_sectional?: boolean;
-    longitudinal?: boolean;
-    health_records?: boolean;
-    other?: boolean;
+    case_control?: string;
+    cross_sectional?: string;
+    longitudinal?: string;
+    health_records?: string;
+    other?: string;
   };
   website?: string;
 };
@@ -174,27 +174,39 @@ const toEsDocument = (allData: Raw[]) => {
       const output: MappingShape = {
         cohort_name: rawEntry.cohort_name,
         available_data_types: {
-          biospecimens: rawEntry.available_data_types?.biospecimens || "0%",
-          genomic_data: rawEntry.available_data_types?.genomic_data || "0%",
-          genomic_data_wgs:
-            rawEntry.available_data_types?.genomic_data_wgs || "0%",
-          genomic_data_wes:
-            rawEntry.available_data_types?.genomic_data_wes || "0%",
-          genomic_data_array:
-            rawEntry.available_data_types?.genomic_data_array || "0%",
-          genomic_data_other:
-            rawEntry.available_data_types?.genomic_data_other || "0%",
-          demographic_data:
-            rawEntry.available_data_types?.demographic_data || false,
-          imaging_data: rawEntry.available_data_types?.imaging_data || "0%",
-          participants_address_or_geocode_data:
-            rawEntry.available_data_types
-              ?.participants_address_or_geocode_data || "0%",
-          electronic_health_record_data:
-            rawEntry.available_data_types?.electronic_health_record_data ||
-            "0%",
-          phenotypic_clinical_data:
-            rawEntry.available_data_types?.phenotypic_clinical_data || "0%",
+          biospecimens: transformPercentRangeString(
+            rawEntry.available_data_types?.biospecimens
+          ),
+          genomic_data: transformPercentRangeString(
+            rawEntry.available_data_types?.genomic_data
+          ),
+          genomic_data_wgs: transformPercentRangeString(
+            rawEntry.available_data_types?.genomic_data_wgs
+          ),
+          genomic_data_wes: transformPercentRangeString(
+            rawEntry.available_data_types?.genomic_data_wes
+          ),
+          genomic_data_array: transformPercentRangeString(
+            rawEntry.available_data_types?.genomic_data_array
+          ),
+          genomic_data_other: transformPercentRangeString(
+            rawEntry.available_data_types?.genomic_data_other
+          ),
+          demographic_data: transformYesNoBoolean(
+            rawEntry.available_data_types?.demographic_data
+          ),
+          imaging_data: transformPercentRangeString(
+            rawEntry.available_data_types?.imaging_data
+          ),
+          participants_address_or_geocode_data: transformPercentRangeString(
+            rawEntry.available_data_types?.participants_address_or_geocode_data
+          ),
+          electronic_health_record_data: transformPercentRangeString(
+            rawEntry.available_data_types?.electronic_health_record_data
+          ),
+          phenotypic_clinical_data: transformPercentRangeString(
+            rawEntry.available_data_types?.phenotypic_clinical_data
+          ),
         },
         basic_cohort_attributes: Object.values(
           rawEntry.basic_cohort_attributes || {}
@@ -207,28 +219,30 @@ const toEsDocument = (allData: Raw[]) => {
         biosample: {
           biosample_variables: [],
           sample_types: _(rawEntry.biosample?.sample_type || [])
-            // .concat(randomSampleTypes) // use this if need random fake data
+            .map((val) => val.replace("Other biosample type", "Other"))
             .uniq()
             .value(),
         },
         cohort_ancestry: {
-          asian: rawEntry.cohort_ancestry?.asian || "0%",
-          black_african_american_or_african:
-            rawEntry.cohort_ancestry?.black_african_american_or_african || "0%",
-          european_or_white:
-            rawEntry.cohort_ancestry?.european_or_white || "0%",
-          hispanic_latino_or_spanish:
-            rawEntry.cohort_ancestry?.hispanic_latino_or_spanish || "0%",
-          middle_eastern_or_north_african:
-            rawEntry.cohort_ancestry?.middle_eastern_or_north_african || "0%",
-          other: rawEntry.cohort_ancestry?.other || false,
+          asian: transformPercentRangeString(rawEntry.cohort_ancestry?.asian),
+          black_african_american_or_african: transformPercentRangeString(
+            rawEntry.cohort_ancestry?.black_african_american_or_african
+          ),
+          european_or_white: transformPercentRangeString(
+            rawEntry.cohort_ancestry?.european_or_white
+          ),
+          hispanic_latino_or_spanish: transformPercentRangeString(
+            rawEntry.cohort_ancestry?.hispanic_latino_or_spanish
+          ),
+          middle_eastern_or_north_african: transformPercentRangeString(
+            rawEntry.cohort_ancestry?.middle_eastern_or_north_african
+          ),
+          other: transformYesNoBoolean(rawEntry.cohort_ancestry?.other),
         },
         countries:
           rawEntry.countries?.map((country) => {
-            if (country === "") {
-              if (rawEntry.cohort_name === "NICCC") {
-                return "USA";
-              }
+            if (country === "" && rawEntry.cohort_name === "NICCC") {
+              return "USA";
             }
             return (
               (
@@ -241,9 +255,13 @@ const toEsDocument = (allData: Raw[]) => {
             );
           }) || [],
         current_enrollment: rawEntry.current_enrollment || 0,
-        dictionary_harmonized: rawEntry.dictionary_harmonized || false,
-        enrollment_period: rawEntry?.enrollment_period?.replace(/nan/g, " - "),
-        irb_approved_data_sharing: rawEntry.irb_approved_data_sharing || "0%",
+        dictionary_harmonized: transformYesNoBoolean(
+          rawEntry.dictionary_harmonized
+        ),
+        enrollment_period: rawEntry?.enrollment_period,
+        irb_approved_data_sharing: transformPercentRangeString(
+          rawEntry.irb_approved_data_sharing
+        ),
         laboratory_measures: {
           genomic_variables: [],
           microbiology: (rawEntry.laboratory_measures?.microbiology || []).map(
@@ -295,11 +313,19 @@ const toEsDocument = (allData: Raw[]) => {
         },
         target_enrollment: rawEntry.target_enrollment,
         type_of_cohort: {
-          case_control: rawEntry.type_of_cohort?.case_control || false,
-          cross_sectional: rawEntry.type_of_cohort?.cross_sectional || false,
-          longitudinal: rawEntry.type_of_cohort?.longitudinal || false,
-          health_records: rawEntry.type_of_cohort?.health_records || false,
-          other: rawEntry.type_of_cohort?.other || false,
+          case_control: transformYesNoBoolean(
+            rawEntry.type_of_cohort?.case_control
+          ),
+          cross_sectional: transformYesNoBoolean(
+            rawEntry.type_of_cohort?.cross_sectional
+          ),
+          longitudinal: transformYesNoBoolean(
+            rawEntry.type_of_cohort?.longitudinal
+          ),
+          health_records: transformYesNoBoolean(
+            rawEntry.type_of_cohort?.health_records
+          ),
+          other: transformYesNoBoolean(rawEntry.type_of_cohort?.other),
         },
         website:
           (
@@ -318,6 +344,31 @@ const toEsDocument = (allData: Raw[]) => {
     }
   };
 };
+
+function transformYesNoBoolean(input?: string): boolean {
+  // TODO: Check for string includes "Yes"
+  return input?.toLowerCase().match(/yes/g) ? true : false;
+}
+
+function transformPercentRangeString(input?: string): string {
+  // Yes and No replacement values
+  const NO_STRING_VALUE = "0%";
+  const YES_STRING_VALUE = "100%";
+
+  switch (true) {
+    case input === "Yes":
+      return YES_STRING_VALUE;
+    case !input:
+      // covers undefined and null cases
+      return NO_STRING_VALUE;
+    case input === "No":
+      return NO_STRING_VALUE;
+    default:
+      return _.isEmpty(input) || !_.isString(input)
+        ? NO_STRING_VALUE
+        : input.replace("Yes (", "").replace(")", ""); // handles standard pattern `Yes (x-y%)`
+  }
+}
 
 export default (raw: Raw[]) => {
   // @ts-ignore it's ok we want to model the type explicitly
