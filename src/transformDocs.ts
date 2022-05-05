@@ -353,7 +353,7 @@ function transformYesNoBoolean(input?: string): boolean {
 function transformPercentRangeString(input?: string): string {
   // Yes and No replacement values
   const NO_STRING_VALUE = "0%";
-  const YES_STRING_VALUE = "100%";
+  const YES_STRING_VALUE = "% Unknown";
 
   switch (true) {
     case input === "Yes":
@@ -366,7 +366,7 @@ function transformPercentRangeString(input?: string): string {
     default:
       return _.isEmpty(input) || !_.isString(input)
         ? NO_STRING_VALUE
-        : input.replace("Yes (", "").replace(")", ""); // handles standard pattern `Yes (x-y%)`
+        : input.replace("Yes", "").replace("(", "").replace(")", "").trim(); // handles standard pattern `Yes (x-y%)`, else it returns the value
   }
 }
 
