@@ -1,9 +1,8 @@
 import { Client } from "@elastic/elasticsearch";
-import indexSetting from "./assets/cohort_centric.json";
 import transformDocs, { Raw } from "./transformDocs";
 import { ES_INDEX } from "./config";
-import demoData from "./assets/demo_data.json";
-import realData from "./assets/real_data.json";
+import indexSetting from "./assets/cohort_centric.json";
+import cohortData from "./assets/cohort_data.json";
 
 export const initIndexMapping = async (index: string, esClient: Client) => {
   const serializedIndexName = index.toLowerCase();
@@ -20,16 +19,9 @@ const sleep = () =>
     }, 500);
   });
 
-const indexData = async (config: {
-  esClient: Client;
-  includeDemoData: boolean;
-  includeRealData: boolean;
-}) => {
-  const { esClient, includeDemoData, includeRealData } = config;
-  const dataToTransform = [
-    ...((includeRealData ? realData : []) as Raw[]),
-    ...((includeDemoData ? demoData : []) as Raw[]),
-  ];
+const indexData = async (config: { esClient: Client }) => {
+  const { esClient } = config;
+  const dataToTransform = cohortData as Raw[];
   console.log(
     `Inserting ${dataToTransform.length} cohort documents to ${ES_INDEX}`
   );
