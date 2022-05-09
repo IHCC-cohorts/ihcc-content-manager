@@ -20,25 +20,27 @@ To run the re-index service:
    npm ci
    ```
 
-1. Execute the reindex script with appropriate environment variables:
-
-   Simple example using default config that will populate only demo data:
+1. Execute the reindex script:
 
    ```
-   INCLUDE_DEMO_DATA=true npm run reindex
+   npm run reindex
+   ```
+
+   If necessary, add environment variables for the elasticsearch connection if the default values aren't correct:
+
+   ```
+   ES_INDEX=nci_cohort_data ES_HOSTS=https://es.example.com:9200 npm run index
    ```
 
    ### Configuring the reindex script
 
    We want to run the script `reindex` using `npm`, but first must provide some configuration. The environment variables this script expects are details in the `./src/config.ts` file and summarized in this table:
 
-   | Env Variable          | Default                 | Description                                                                                      |
-   | --------------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
-   | **ES_INDEX**          | `demo_index`            | Name of the ES index that will be created/replaced when this script is run                       |
-   | **ES_HOSTS**          | `http://localhost:9200` | Elasticsearch URL                                                                                |
-   |                       |                         |
-   | **INCLUDE_DEMO_DATA** | `false`                 | Set to `true` to index the provided demo cohort data from the file `./src/assets/demo_data.json` |
-   | **INCLUDE_REAL_DATA** | `false`                 | Set to `true` to index the data from the file `./src/assets/real_data.json`                      |
+   | Env Variable | Default                 | Description                                                                |
+   | ------------ | ----------------------- | -------------------------------------------------------------------------- |
+   | **ES_INDEX** | `demo_index`            | Name of the ES index that will be created/replaced when this script is run |
+   | **ES_HOSTS** | `http://localhost:9200` | Elasticsearch URL                                                          |
+   |              |                         |
 
    To run the script with a non-default value for any of these properties, add them at the start of the command before `npm run reindex`. Example with custom ES_INDEX and ES_HOSTS values, including only real data:
 

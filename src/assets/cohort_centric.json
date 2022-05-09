@@ -8,23 +8,15 @@
     "analysis": {
       "analyzer": {
         "autocomplete_analyzed": {
-          "filter": [
-            "lowercase",
-            "edge_ngram"
-          ],
+          "filter": ["lowercase", "edge_ngram"],
           "tokenizer": "standard"
         },
         "autocomplete_prefix": {
-          "filter": [
-            "lowercase",
-            "edge_ngram"
-          ],
+          "filter": ["lowercase", "edge_ngram"],
           "tokenizer": "keyword"
         },
         "lowercase_keyword": {
-          "filter": [
-            "lowercase"
-          ],
+          "filter": ["lowercase"],
           "tokenizer": "keyword"
         }
       },
@@ -63,42 +55,21 @@
       },
       "cohort_name": {
         "type": "keyword",
-        "copy_to": [
-          "cohort_autocomplete"
-        ]
-      },
-      "countries": {
-        "type": "keyword",
-        "copy_to": [
-          "cohort_autocomplete"
-        ]
-      },
-      "current_enrollment": {
-        "type": "integer"
-      },
-      "pi_lead": {
-        "type": "keyword",
-        "copy_to": [
-          "cohort_autocomplete"
-        ]
-      },
-      "website": {
-        "type": "keyword"
+        "copy_to": ["cohort_autocomplete"]
       },
       "available_data_types": {
         "properties": {
-          "genomic_data": {
-            "type": "boolean"
-          },
-          "environmental_data": {
-            "type": "boolean"
-          },
-          "biospecimens": {
-            "type": "boolean"
-          },
-          "phenotypic_clinical_data": {
-            "type": "boolean"
-          }
+          "biospecimens": { "type": "keyword" },
+          "genomic_data": { "type": "keyword" },
+          "genomic_data_wgs": { "type": "keyword" },
+          "genomic_data_wes": { "type": "keyword" },
+          "genomic_data_array": { "type": "keyword" },
+          "genomic_data_other": { "type": "keyword" },
+          "demographic_data": { "type": "boolean" },
+          "imaging_data": { "type": "keyword" },
+          "participants_address_or_geocode_data": { "type": "keyword" },
+          "electronic_health_record_data": { "type": "keyword" },
+          "phenotypic_clinical_data": { "type": "keyword" }
         }
       },
       "basic_cohort_attributes": {
@@ -114,6 +85,32 @@
           }
         }
       },
+      "cohort_ancestry": {
+        "properties": {
+          "asian": { "type": "keyword" },
+          "black_african_american_or_african": { "type": "keyword" },
+          "european_or_white": { "type": "keyword" },
+          "hispanic_latino_or_spanish": { "type": "keyword" },
+          "middle_eastern_or_north_african": { "type": "keyword" },
+          "other": { "type": "boolean" }
+        }
+      },
+      "countries": {
+        "type": "keyword",
+        "copy_to": ["cohort_autocomplete"]
+      },
+      "current_enrollment": {
+        "type": "integer"
+      },
+      "dictionary_harmonized": {
+        "type": "boolean"
+      },
+      "enrollment_period": {
+        "type": "keyword"
+      },
+      "irb_approved_data_sharing": {
+        "type": "keyword"
+      },
       "laboratory_measures": {
         "properties": {
           "genomic_variables": {
@@ -124,18 +121,19 @@
           }
         }
       },
+      "pi_lead": {
+        "type": "keyword",
+        "copy_to": ["cohort_autocomplete"]
+      },
       "questionnaire_survey_data": {
         "properties": {
-          "lifestyle_and_behaviours": {
-            "type": "keyword"
-          },
-          "physiological_measurements": {
-            "type": "keyword"
-          },
-          "socio_demographic_and_economic_characteristics": {
-            "type": "keyword"
-          },
           "diseases": {
+            "type": "keyword"
+          },
+          "healthcare_information": {
+            "type": "keyword"
+          },
+          "lifestyle_and_behaviours": {
             "type": "keyword"
           },
           "medication": {
@@ -144,10 +142,40 @@
           "non_pharmacological_interventions": {
             "type": "keyword"
           },
-          "healthcare_information": {
+          "perception_of_health_and_quality_of_life": {
+            "type": "keyword"
+          },
+          "physical_environment": {
+            "type": "keyword"
+          },
+          "physiological_measurements": {
+            "type": "keyword"
+          },
+          "socio_demographic_and_economic_characteristics": {
+            "type": "keyword"
+          },
+          "survey_administration": {
+            "type": "keyword"
+          },
+          "other_questionnaire_survey_data": {
             "type": "keyword"
           }
         }
+      },
+      "target_enrollment": {
+        "type": "integer"
+      },
+      "type_of_cohort": {
+        "properties": {
+          "case_control": { "type": "boolean" },
+          "cross_sectional": { "type": "boolean" },
+          "longitudinal": { "type": "boolean" },
+          "health_records": { "type": "boolean" },
+          "other": { "type": "boolean" }
+        }
+      },
+      "website": {
+        "type": "keyword"
       }
     }
   }

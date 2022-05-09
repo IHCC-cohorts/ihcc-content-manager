@@ -1,5 +1,5 @@
 import express from "express";
-import { PORT, ES_HOSTS, INCLUDE_DEMO_DATA, INCLUDE_REAL_DATA } from "config";
+import { PORT, ES_HOSTS } from "config";
 import morgan from "morgan";
 import { Client } from "@elastic/elasticsearch";
 import indexData from "indexData";
@@ -13,11 +13,9 @@ import indexData from "indexData";
   });
   await indexData({
     esClient,
-    includeDemoData: INCLUDE_DEMO_DATA,
-    includeRealData: INCLUDE_REAL_DATA,
   });
 
-  app.get("/status", (req, res) => {
+  app.get("/status", (_req, res) => {
     res.json({
       healthy: true,
     });
