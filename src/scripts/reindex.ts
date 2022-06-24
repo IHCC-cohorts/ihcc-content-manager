@@ -12,7 +12,7 @@ const reindex = async function () {
     esClient,
   });
 
-  console.log("\nDone Redindex.");
+  console.log("\nDone Reindex.");
 };
 
 reindex();
