@@ -5,7 +5,9 @@
     "dictionary_harmonized": "Yes",
     "website": "https://canpath.ca/",
     "pi_lead": "Philip Awadalla",
-    "countries": ["Canada"],
+    "countries": [
+      "Canada"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2007:-",
     "current_enrollment": 333000,
@@ -50,7 +52,9 @@
         "Respiratory system diseases",
         "Skin and subcutaneous tissue diseases"
       ],
-      "healthcare_information": ["Routine clincial visits"],
+      "healthcare_information": [
+        "Routine clincial visits"
+      ],
       "lifestyle_and_behaviours": [
         "Alcohol use history",
         "Dietary history",
@@ -74,9 +78,14 @@
         "Perception of health",
         "Quality of life"
       ],
-      "physical_environment": ["Exposure to carcinogens"],
+      "physical_environment": [
+        "Exposure to carcinogens"
+      ],
       "physiological_measurements": {
-        "anthropometry": ["Height", "Weight"]
+        "anthropometry": [
+          "Height",
+          "Weight"
+        ]
       },
       "socio_demographic_and_economic_characteristics": [
         "Age/birthdate",
@@ -102,7 +111,12 @@
     "dictionary_harmonized": "Yes",
     "website": "https://caglab.org/",
     "pi_lead": "John Connolly",
-    "countries": ["USA", "Mexico", "Brazil", "Europe"],
+    "countries": [
+      "USA",
+      "Mexico",
+      "Brazil",
+      "Europe"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2006:-",
     "current_enrollment": 130000,
@@ -137,7 +151,9 @@
     },
     "questionnaire_survey_data": {
       "cognitive_and_psychological_measurements": {
-        "cognitive_functioning": ["Penn cnb"]
+        "cognitive_functioning": [
+          "Penn cnb"
+        ]
       },
       "diseases": [
         "Blood-related disorders",
@@ -158,7 +174,9 @@
         "Urinary system diseases",
         "Visual system diseases"
       ],
-      "healthcare_information": ["Hospitalizations"],
+      "healthcare_information": [
+        "Hospitalizations"
+      ],
       "lifestyle_and_behaviours": [
         "Alcohol use history",
         "Dietary history",
@@ -168,7 +186,9 @@
         "Tobacco use history"
       ],
       "medication": [],
-      "non_pharmacological_interventions": ["Surgical interventions"],
+      "non_pharmacological_interventions": [
+        "Surgical interventions"
+      ],
       "other_questionnaire_survey_data": [
         "Life stage/time point",
         "Signs and symptoms",
@@ -180,7 +200,10 @@
       ],
       "physical_environment": [],
       "physiological_measurements": {
-        "anthropometry": ["Height", "Weight"]
+        "anthropometry": [
+          "Height",
+          "Weight"
+        ]
       },
       "socio_demographic_and_economic_characteristics": [
         "Age/birthdate",
@@ -203,7 +226,9 @@
     "dictionary_harmonized": "Yes",
     "website": "http://www.elsa.org.br/oelsabrasil.html",
     "pi_lead": "Paulo Lotufo",
-    "countries": ["Brazil"],
+    "countries": [
+      "Brazil"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 13800,
     "type_of_cohort": {
@@ -237,7 +262,9 @@
     "questionnaire_survey_data": {
       "cognitive_and_psychological_measurements": {
         "cognitive_functioning": [],
-        "general_variables": ["Psychological distress and emotions"]
+        "general_variables": [
+          "Psychological distress and emotions"
+        ]
       },
       "diseases": [
         "Cancer",
@@ -253,7 +280,9 @@
         "Urinary system diseases",
         "Visual system diseases"
       ],
-      "healthcare_information": ["Hospitalizations"],
+      "healthcare_information": [
+        "Hospitalizations"
+      ],
       "lifestyle_and_behaviours": [
         "Alcohol use history",
         "Dietary history",
@@ -261,8 +290,13 @@
         "Sleep history",
         "Tobacco use history"
       ],
-      "medication": ["Administration", "Associated disease(s)"],
-      "non_pharmacological_interventions": ["Surgical interventions"],
+      "medication": [
+        "Administration",
+        "Associated disease(s)"
+      ],
+      "non_pharmacological_interventions": [
+        "Surgical interventions"
+      ],
       "other_questionnaire_survey_data": [
         "Family history of disease",
         "Reproduction",
@@ -275,8 +309,14 @@
       ],
       "physical_environment": [],
       "physiological_measurements": {
-        "anthropometry": ["Height", "Weight"],
-        "circulation_and_respiration": ["Blood pressure", "Heart rate (hr)"]
+        "anthropometry": [
+          "Height",
+          "Weight"
+        ],
+        "circulation_and_respiration": [
+          "Blood pressure",
+          "Heart rate (hr)"
+        ]
       },
       "socio_demographic_and_economic_characteristics": [
         "Age/birthdate",
@@ -295,7 +335,11 @@
       "Unique identifiers"
     ],
     "biosample": {
-      "sample_type": ["Blood", "Other biosample type", "Urine"]
+      "sample_type": [
+        "Blood",
+        "Other biosample type",
+        "Urine"
+      ]
     }
   },
   {
@@ -304,7 +348,9 @@
     "dictionary_harmonized": "Yes",
     "website": "https://dceg2.cancer.gov/gemshare/studies/GCS/",
     "pi_lead": "Reza Malekzadeh",
-    "countries": ["Iran"],
+    "countries": [
+      "Iran"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2014:-",
     "current_enrollment": 50000,
@@ -341,7 +387,9 @@
         "Endocrine system diseases",
         "Respiratory system diseases"
       ],
-      "healthcare_information": ["Physician/practitioner info"],
+      "healthcare_information": [
+        "Physician/practitioner info"
+      ],
       "lifestyle_and_behaviours": [
         "Alcohol use history",
         "Dietary history",
@@ -349,12 +397,25 @@
         "Recreational drug history",
         "Tobacco use history"
       ],
-      "medication": ["Associated disease(s)", "Prescription"],
-      "non_pharmacological_interventions": ["Surgical interventions"],
-      "other_questionnaire_survey_data": ["Signs and symptoms"],
+      "medication": [
+        "Associated disease(s)",
+        "Prescription"
+      ],
+      "non_pharmacological_interventions": [
+        "Surgical interventions"
+      ],
+      "other_questionnaire_survey_data": [
+        "Signs and symptoms"
+      ],
       "physiological_measurements": {
-        "anthropometry": ["Height", "Weight"],
-        "circulation_and_respiration": ["Blood pressure", "Heart rate (hr)"]
+        "anthropometry": [
+          "Height",
+          "Weight"
+        ],
+        "circulation_and_respiration": [
+          "Blood pressure",
+          "Heart rate (hr)"
+        ]
       },
       "socio_demographic_and_economic_characteristics": [
         "Age/birthdate",
@@ -370,7 +431,10 @@
       "Unique identifiers"
     ],
     "biosample": {
-      "sample_type": ["Blood", "Other biosample type"]
+      "sample_type": [
+        "Blood",
+        "Other biosample type"
+      ]
     }
   },
   {
@@ -378,7 +442,9 @@
     "dictionary_harmonized": "Yes",
     "website": "https://www.genomicsengland.co.uk/",
     "pi_lead": "Mark Caulfield",
-    "countries": ["UK"],
+    "countries": [
+      "UK"
+    ],
     "irb_approved_data_sharing": "Yes",
     "enrollment_period": "2013:2018",
     "current_enrollment": 100000,
@@ -399,13 +465,29 @@
         "Nervous system disorders",
         "Respiratory system diseases"
       ],
-      "healthcare_information": ["Physician/practitioner info"],
-      "lifestyle_and_behaviours": ["Alcohol use history"],
-      "medication": ["Administration", "Drug response(s)", "Prescription"],
-      "non_pharmacological_interventions": ["Surgical interventions"],
-      "other_questionnaire_survey_data": ["Reproduction", "Signs and symptoms"],
+      "healthcare_information": [
+        "Physician/practitioner info"
+      ],
+      "lifestyle_and_behaviours": [
+        "Alcohol use history"
+      ],
+      "medication": [
+        "Administration",
+        "Drug response(s)",
+        "Prescription"
+      ],
+      "non_pharmacological_interventions": [
+        "Surgical interventions"
+      ],
+      "other_questionnaire_survey_data": [
+        "Reproduction",
+        "Signs and symptoms"
+      ],
       "physiological_measurements": {
-        "anthropometry": ["Height", "Weight"]
+        "anthropometry": [
+          "Height",
+          "Weight"
+        ]
       },
       "socio_demographic_and_economic_characteristics": [
         "Age/birthdate",
@@ -427,7 +509,9 @@
     "dictionary_harmonized": "Yes",
     "website": "http://www.breakthroughgenerations.org.uk/home",
     "pi_lead": "Richard Houlston",
-    "countries": ["UK"],
+    "countries": [
+      "UK"
+    ],
     "irb_approved_data_sharing": "Yes",
     "enrollment_period": "2003:2015",
     "current_enrollment": 113000,
@@ -441,7 +525,9 @@
     },
     "questionnaire_survey_data": {
       "cognitive_and_psychological_measurements": {
-        "general_variables": ["Psychological distress and emotions"]
+        "general_variables": [
+          "Psychological distress and emotions"
+        ]
       },
       "diseases": [
         "Congenital and genetic disorders",
@@ -471,7 +557,10 @@
         "Signs and symptoms"
       ],
       "physiological_measurements": {
-        "anthropometry": ["Height", "Weight"]
+        "anthropometry": [
+          "Height",
+          "Weight"
+        ]
       },
       "socio_demographic_and_economic_characteristics": [
         "Age/birthdate",
@@ -487,7 +576,9 @@
       "Unique identifiers"
     ],
     "biosample": {
-      "sample_type": ["Blood"]
+      "sample_type": [
+        "Blood"
+      ]
     }
   },
   {
@@ -496,7 +587,9 @@
     "dictionary_harmonized": "Yes",
     "website": "http://www.ntnu.edu/hunt",
     "pi_lead": "Steinar Krokstad",
-    "countries": ["Norway"],
+    "countries": [
+      "Norway"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "1984:-",
     "current_enrollment": 250000,
@@ -531,8 +624,16 @@
     },
     "questionnaire_survey_data": {
       "cognitive_and_psychological_measurements": {
-        "cognitive_functioning": ["Cdr", "Cerad battery", "Moca", "Npi", "Sib"],
-        "general_variables": ["Psychological distress and emotions"]
+        "cognitive_functioning": [
+          "Cdr",
+          "Cerad battery",
+          "Moca",
+          "Npi",
+          "Sib"
+        ],
+        "general_variables": [
+          "Psychological distress and emotions"
+        ]
       },
       "diseases": [
         "Cancer",
@@ -561,7 +662,10 @@
         "Sleep history",
         "Tobacco use history"
       ],
-      "medication": ["Administration", "Associated disease(s)"],
+      "medication": [
+        "Administration",
+        "Associated disease(s)"
+      ],
       "non_pharmacological_interventions": [
         "Psychological interventions",
         "Surgical interventions"
@@ -579,8 +683,14 @@
         "Quality of life"
       ],
       "physiological_measurements": {
-        "anthropometry": ["Height", "Weight"],
-        "circulation_and_respiration": ["Blood pressure", "Heart rate (hr)"]
+        "anthropometry": [
+          "Height",
+          "Weight"
+        ],
+        "circulation_and_respiration": [
+          "Blood pressure",
+          "Heart rate (hr)"
+        ]
       },
       "socio_demographic_and_economic_characteristics": [
         "Age/birthdate",
@@ -592,9 +702,13 @@
         "Religion"
       ]
     },
-    "survey_administration": ["Date and time-related information"],
+    "survey_administration": [
+      "Date and time-related information"
+    ],
     "biosample": {
-      "sample_type": ["Blood"]
+      "sample_type": [
+        "Blood"
+      ]
     }
   },
   {
@@ -602,7 +716,13 @@
     "dictionary_harmonized": "Yes",
     "website": "http://www.cdc.go.kr/contents.es?mid=a50401010100#1",
     "pi_lead": "Dr Lee",
-    "countries": ["South Korea", "Vietnam", "Cambodia", "Japan", "China"],
+    "countries": [
+      "South Korea",
+      "Vietnam",
+      "Cambodia",
+      "Japan",
+      "China"
+    ],
     "irb_approved_data_sharing": "Yes",
     "enrollment_period": "2001:2013",
     "current_enrollment": 235000,
@@ -627,11 +747,22 @@
         "Tobacco use history"
       ],
       "medication": [],
-      "non_pharmacological_interventions": ["Surgical interventions"],
-      "other_questionnaire_survey_data": ["Reproduction", "Signs and symptoms"],
+      "non_pharmacological_interventions": [
+        "Surgical interventions"
+      ],
+      "other_questionnaire_survey_data": [
+        "Reproduction",
+        "Signs and symptoms"
+      ],
       "physiological_measurements": {
-        "anthropometry": ["Height", "Weight"],
-        "circulation_and_respiration": ["Blood pressure", "Heart rate (hr)"]
+        "anthropometry": [
+          "Height",
+          "Weight"
+        ],
+        "circulation_and_respiration": [
+          "Blood pressure",
+          "Heart rate (hr)"
+        ]
       },
       "socio_demographic_and_economic_characteristics": [
         "Education",
@@ -639,7 +770,10 @@
       ]
     },
     "biosample": {
-      "sample_type": ["Blood", "Urine"]
+      "sample_type": [
+        "Blood",
+        "Urine"
+      ]
     }
   },
   {
@@ -648,7 +782,9 @@
     "dictionary_harmonized": "Yes",
     "website": "https://biometry.nci.nih.gov/cdas/studies/plco/",
     "pi_lead": "Paul Pinsky",
-    "countries": ["USA"],
+    "countries": [
+      "USA"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 154000,
     "type_of_cohort": {
@@ -709,7 +845,10 @@
         "Signs and symptoms"
       ],
       "physiological_measurements": {
-        "anthropometry": ["Height", "Weight"]
+        "anthropometry": [
+          "Height",
+          "Weight"
+        ]
       },
       "socio_demographic_and_economic_characteristics": [
         "Age/birthdate",
@@ -733,7 +872,9 @@
     "dictionary_harmonized": "Yes",
     "website": "http://saprin.mrc.ac.za/",
     "pi_lead": "Kobus Herbst",
-    "countries": ["South Africa"],
+    "countries": [
+      "South Africa"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 375000,
     "target_enrollment": 700000,
@@ -766,7 +907,9 @@
       "phenotypic_clinical_data": "Yes (26-50%)"
     },
     "questionnaire_survey_data": {
-      "diseases": ["Endocrine system diseases"],
+      "diseases": [
+        "Endocrine system diseases"
+      ],
       "non_pharmacological_interventions": [],
       "other_questionnaire_survey_data": [
         "Life stage/time point",
@@ -791,7 +934,9 @@
     "dictionary_harmonized": "Yes",
     "website": "https://www.ctu.mrc.ac.uk/studies/all-studies/u/uklwc/",
     "pi_lead": "Professor Usha Menon",
-    "countries": ["UK"],
+    "countries": [
+      "UK"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 202638,
     "type_of_cohort": {
@@ -834,7 +979,9 @@
         "Tobacco use history"
       ],
       "medication": [],
-      "non_pharmacological_interventions": ["Surgical interventions"],
+      "non_pharmacological_interventions": [
+        "Surgical interventions"
+      ],
       "other_questionnaire_survey_data": [
         "Cause of death",
         "Family history of disease",
@@ -842,9 +989,14 @@
         "Reproduction",
         "Signs and symptoms"
       ],
-      "perception_of_health_and_quality_of_life": ["Quality of life"],
+      "perception_of_health_and_quality_of_life": [
+        "Quality of life"
+      ],
       "physiological_measurements": {
-        "anthropometry": ["Height", "Weight"]
+        "anthropometry": [
+          "Height",
+          "Weight"
+        ]
       },
       "socio_demographic_and_economic_characteristics": [
         "Age/birthdate",
@@ -855,9 +1007,13 @@
         "Occupation"
       ]
     },
-    "survey_administration": ["Date and time-related information"],
+    "survey_administration": [
+      "Date and time-related information"
+    ],
     "biosample": {
-      "sample_type": ["Blood"]
+      "sample_type": [
+        "Blood"
+      ]
     }
   },
   {
@@ -865,7 +1021,9 @@
     "dictionary_harmonized": "Yes",
     "website": "https://www.ahri.org",
     "pi_lead": "Willem Hankom",
-    "countries": ["South Africa"],
+    "countries": [
+      "South Africa"
+    ],
     "irb_approved_data_sharing": "Yes",
     "enrollment_period": "2000:-",
     "current_enrollment": 130000,
@@ -889,12 +1047,23 @@
         "Dietary history",
         "Tobacco use history"
       ],
-      "medication": ["Associated disease(s)"],
+      "medication": [
+        "Associated disease(s)"
+      ],
       "non_pharmacological_interventions": [],
-      "other_questionnaire_survey_data": ["Reproduction", "Signs and symptoms"],
+      "other_questionnaire_survey_data": [
+        "Reproduction",
+        "Signs and symptoms"
+      ],
       "physiological_measurements": {
-        "anthropometry": ["Height", "Weight"],
-        "circulation_and_respiration": ["Blood pressure", "Heart rate (hr)"]
+        "anthropometry": [
+          "Height",
+          "Weight"
+        ],
+        "circulation_and_respiration": [
+          "Blood pressure",
+          "Heart rate (hr)"
+        ]
       }
     },
     "survey_administration": [
@@ -902,7 +1071,12 @@
       "Unique identifiers"
     ],
     "biosample": {
-      "sample_type": ["Blood", "Other biosample type", "Saliva", "Urine"]
+      "sample_type": [
+        "Blood",
+        "Other biosample type",
+        "Saliva",
+        "Urine"
+      ]
     }
   },
   {
@@ -911,7 +1085,12 @@
     "dictionary_harmonized": "No",
     "website": "https://www.wits.ac.za/research/sbimb/research/awi-gen/",
     "pi_lead": "Michele Ramsay",
-    "countries": ["South Africa", "Kenya", "Ghana", "Burkina Faso"],
+    "countries": [
+      "South Africa",
+      "Kenya",
+      "Ghana",
+      "Burkina Faso"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2012:-",
     "current_enrollment": 12500,
@@ -951,11 +1130,13 @@
     "dictionary_harmonized": "No",
     "website": "https://www.qatarbiobank.org.qa/home",
     "pi_lead": "Nahla Afifi",
-    "countries": ["Qatar"],
+    "countries": [
+      "Qatar"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2013:-",
-    "current_enrollment": 32,
-    "target_enrollment": 60,
+    "current_enrollment": 32000,
+    "target_enrollment": 60000,
     "type_of_cohort": {
       "case_control": "No",
       "cross_sectional": "No",
@@ -1039,7 +1220,9 @@
     "description": "Non-profit member only",
     "dictionary_harmonized": "No",
     "pi_lead": "Alison Motsinger-Reif",
-    "countries": ["USA"],
+    "countries": [
+      "USA"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2002:-",
     "current_enrollment": 19000,
@@ -1079,7 +1262,9 @@
     "dictionary_harmonized": "No",
     "website": "https://www.ctsu.ox.ac.uk/research/prospective-blood-based-study-of-150-000-individuals-in-mexico",
     "pi_lead": "JESUS ALEGRE DIAZ",
-    "countries": ["Mexico"],
+    "countries": [
+      "Mexico"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 160000,
     "type_of_cohort": {
@@ -1117,10 +1302,12 @@
     "dictionary_harmonized": "No",
     "website": "https://research.23andme.com/",
     "pi_lead": "Matthew McIntyre",
-    "countries": ["USA"],
+    "countries": [
+      "USA"
+    ],
     "irb_approved_data_sharing": "Yes (26-50%)",
     "enrollment_period": "2008:-",
-    "current_enrollment": 10,
+    "current_enrollment": 10000000,
     "type_of_cohort": {
       "case_control": "No",
       "cross_sectional": "Yes",
@@ -1156,7 +1343,9 @@
     "dictionary_harmonized": "No",
     "website": "http://www.genesandhealth.org/",
     "pi_lead": "David van Heel",
-    "countries": ["UK"],
+    "countries": [
+      "UK"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2015:-",
     "current_enrollment": 50000,
@@ -1196,7 +1385,9 @@
     "dictionary_harmonized": "No",
     "website": "https://www.i-med.ac.at/msig/vhmpp.html",
     "pi_lead": "Hanno Ulmer",
-    "countries": ["Austria"],
+    "countries": [
+      "Austria"
+    ],
     "irb_approved_data_sharing": "No",
     "current_enrollment": 180000,
     "type_of_cohort": {
@@ -1230,7 +1421,9 @@
     "dictionary_harmonized": "No",
     "website": "http://www.constances.fr/index_EN.php",
     "pi_lead": "Marcel Goldberg",
-    "countries": ["France"],
+    "countries": [
+      "France"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 220000,
     "type_of_cohort": {
@@ -1267,7 +1460,9 @@
     "dictionary_harmonized": "No",
     "website": "https://www.twbiobank.org.tw/new_web/",
     "pi_lead": "Chung-ke CHang",
-    "countries": ["Taiwan"],
+    "countries": [
+      "Taiwan"
+    ],
     "irb_approved_data_sharing": "No",
     "enrollment_period": "2012:-",
     "current_enrollment": 157047,
@@ -1307,7 +1502,9 @@
     "dictionary_harmonized": "No",
     "website": "https://www.saxinstitute.org.au/our-work/45-up-study/",
     "pi_lead": "Dr Martin Mcnamara",
-    "countries": ["Australia"],
+    "countries": [
+      "Australia"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 267000,
     "type_of_cohort": {
@@ -1344,7 +1541,9 @@
     "dictionary_harmonized": "No",
     "website": "http://www.ckbiobank.org/site/",
     "pi_lead": "Zhengming Chen",
-    "countries": ["China"],
+    "countries": [
+      "China"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 512000,
     "type_of_cohort": {
@@ -1382,7 +1581,9 @@
     "dictionary_harmonized": "No",
     "website": "https://www.mauco.org/",
     "pi_lead": "Catterina Ferreccio",
-    "countries": ["Chile"],
+    "countries": [
+      "Chile"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2014:-",
     "current_enrollment": 9500,
@@ -1418,7 +1619,9 @@
     "dictionary_harmonized": "No",
     "website": "http://www.megabank.tohoku.ac.jp/english/",
     "pi_lead": "Masayuki Yamamoto",
-    "countries": ["Japan"],
+    "countries": [
+      "Japan"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 150000,
     "type_of_cohort": {
@@ -1456,7 +1659,9 @@
     "dictionary_harmonized": "No",
     "website": "https://www.civilservicehospital.org/",
     "pi_lead": "Dr. Rupesh Mishra",
-    "countries": ["Nepal"],
+    "countries": [
+      "Nepal"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2021:-",
     "current_enrollment": 54,
@@ -1491,7 +1696,9 @@
     "description": "Non-profit member only",
     "dictionary_harmonized": "No",
     "pi_lead": "Segun Fatumo",
-    "countries": ["Uganda"],
+    "countries": [
+      "Uganda"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 7000,
     "type_of_cohort": {
@@ -1529,7 +1736,9 @@
     "dictionary_harmonized": "No",
     "website": "http://www.ukm.my/mycohort/ms/",
     "pi_lead": "A Rahman A Jamal",
-    "countries": ["Malaysia"],
+    "countries": [
+      "Malaysia"
+    ],
     "irb_approved_data_sharing": "No",
     "enrollment_period": "2007:-",
     "current_enrollment": 120000,
@@ -1569,7 +1778,9 @@
     "dictionary_harmonized": "No",
     "website": "http://epi.ncc.go.jp/en/jphc/",
     "pi_lead": "Norie Sawada",
-    "countries": ["Japan"],
+    "countries": [
+      "Japan"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 100000,
     "type_of_cohort": {
@@ -1606,7 +1817,9 @@
     "dictionary_harmonized": "No",
     "website": "https://swhs-smhs.app.vumc.org/",
     "pi_lead": "Wei Zheng",
-    "countries": ["Shanghai"],
+    "countries": [
+      "Shanghai"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 136000,
     "type_of_cohort": {
@@ -1643,7 +1856,9 @@
     "dictionary_harmonized": "No",
     "website": "http://www.muchap.org/",
     "pi_lead": "Dan Kajungu",
-    "countries": ["Uganda"],
+    "countries": [
+      "Uganda"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2005:-",
     "current_enrollment": 90000,
@@ -1679,7 +1894,9 @@
     "dictionary_harmonized": "No",
     "website": "www.kemri-wellcome.org/",
     "pi_lead": "Philip Bejon",
-    "countries": ["Kenya"],
+    "countries": [
+      "Kenya"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2001:-",
     "current_enrollment": 290000,
@@ -1719,7 +1936,9 @@
     "dictionary_harmonized": "No",
     "website": "https://www.ed.ac.uk/coronagenes/about/coronagenes-study",
     "pi_lead": "Albert Tenesa",
-    "countries": ["UK"],
+    "countries": [
+      "UK"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2020:-",
     "current_enrollment": 15000,
@@ -1759,7 +1978,11 @@
     "dictionary_harmonized": "No",
     "website": "https://www.phpc.cam.ac.uk/ceu",
     "pi_lead": "Adam Butterworth",
-    "countries": ["Bangladesh", "Malaysia", "Sri Lanka"],
+    "countries": [
+      "Bangladesh",
+      "Malaysia",
+      "Sri Lanka"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2010:-",
     "current_enrollment": 80000,
@@ -1799,7 +2022,9 @@
     "dictionary_harmonized": "No",
     "website": "http://www.intervalstudy.org.uk/",
     "pi_lead": "Adam Butterworth",
-    "countries": ["UK"],
+    "countries": [
+      "UK"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2012:-",
     "current_enrollment": 100000,
@@ -1839,7 +2064,9 @@
     "dictionary_harmonized": "No",
     "website": "http://www.nih.go.kr/NIH/eng/contents/NihEngContentView.jsp?cid=65660&menuIds=HOME004-MNU2210-MNU2327-MNU2346",
     "pi_lead": "Jae-Pil Jeon",
-    "countries": ["Korea"],
+    "countries": [
+      "Korea"
+    ],
     "irb_approved_data_sharing": "Yes (26-50%)",
     "enrollment_period": "2008:-",
     "current_enrollment": 990000,
@@ -1877,7 +2104,9 @@
     "dictionary_harmonized": "No",
     "website": "https://research.singhealth.com.sg/Pages/PRISM-Overview.aspx",
     "pi_lead": "John Chambers",
-    "countries": ["Singapore"],
+    "countries": [
+      "Singapore"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 60000,
     "target_enrollment": 100000,
@@ -1915,7 +2144,9 @@
     "dictionary_harmonized": "No",
     "website": "https://genv.org.au//",
     "pi_lead": "Melissa Wake",
-    "countries": ["Australia"],
+    "countries": [
+      "Australia"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2021:-",
     "current_enrollment": 25000,
@@ -1951,7 +2182,9 @@
     "dictionary_harmonized": "No",
     "website": "http://www.biobankdenmark.dk/",
     "pi_lead": "Lasse Boding",
-    "countries": ["Denmark"],
+    "countries": [
+      "Denmark"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 4000000,
     "type_of_cohort": {
@@ -1989,7 +2222,9 @@
     "dictionary_harmonized": "No",
     "website": "https://www.sequencebio.com/",
     "pi_lead": "Richard A. Leach, Ph.D.",
-    "countries": ["Canada"],
+    "countries": [
+      "Canada"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2019:-",
     "current_enrollment": 5000,
@@ -2028,7 +2263,9 @@
     "dictionary_harmonized": "No",
     "website": "www.nurseshealthstudy.org",
     "pi_lead": "Heather Eliassen",
-    "countries": ["USA"],
+    "countries": [
+      "USA"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 121700,
     "type_of_cohort": {
@@ -2065,7 +2302,9 @@
     "dictionary_harmonized": "No",
     "website": "https://www.uhcancercenter.org/mec",
     "pi_lead": "Loic Le Marchand",
-    "countries": ["USA"],
+    "countries": [
+      "USA"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "current_enrollment": 215000,
     "type_of_cohort": {
@@ -2103,11 +2342,12 @@
     "dictionary_harmonized": "No",
     "website": "https://www.umu.se/en/biobank-research-unit/research/northern-sweden-health-and-disease-study-vip-monica-and-the-mammography-screening-project/",
     "pi_lead": "Beatrice Melin",
-    "countries": ["Sweden"],
+    "countries": [
+      "Sweden"
+    ],
     "irb_approved_data_sharing": "Yes (1-25%)",
     "enrollment_period": "1985:-",
     "current_enrollment": 125000,
-    "target_enrollment": 5000,
     "type_of_cohort": {
       "case_control": "No",
       "cross_sectional": "No",
@@ -2142,7 +2382,9 @@
     "dictionary_harmonized": "No",
     "website": "https://allofus.nih.gov/",
     "pi_lead": "Geoffrey GInsburg",
-    "countries": ["USA"],
+    "countries": [
+      "USA"
+    ],
     "irb_approved_data_sharing": "Yes (76-100%)",
     "enrollment_period": "2017:-",
     "current_enrollment": 330000,

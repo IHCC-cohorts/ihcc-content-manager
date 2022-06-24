@@ -3,7 +3,7 @@ import { ES_HOSTS } from "../config";
 import indexData from "../indexData";
 
 const reindex = async function () {
-  console.log("Begining Redindex...\n");
+  console.log("Beginning Reindex...\n");
 
   const esClient = new Client({
     nodes: ES_HOSTS,
@@ -12,7 +12,7 @@ const reindex = async function () {
     esClient,
   });
 
-  console.log("\nDone Redindex.");
+  console.log("\nDone Reindex.");
 };
 
 reindex();

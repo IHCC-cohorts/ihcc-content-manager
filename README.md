@@ -29,7 +29,7 @@ To run the re-index service:
    If necessary, add environment variables for the elasticsearch connection if the default values aren't correct:
 
    ```
-   ES_INDEX=nci_cohort_data ES_HOSTS=https://es.example.com:9200 npm run index
+   ES_INDEX=nci_cohort_data ES_HOSTS=https://es.example.com:9200 npm run reindex
    ```
 
    ### Configuring the reindex script
@@ -52,4 +52,4 @@ To run the re-index service:
 
 The source of truth for IHCC Cohort Data is: https://github.com/IHCC-cohorts/data-harmonization/blob/master/data/cohort-data.json
 
-To update the ES index with this data, copy the contents of that file and replace the contents of `./src/assets/real_data.json`, Then run the reindex script.
+To update the ES index with this data, copy the contents of that file and replace the contents of `./src/assets/cohort_data.json`, Then run the reindex script.
