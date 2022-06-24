@@ -29,7 +29,7 @@ To run the re-index service:
    If necessary, add environment variables for the elasticsearch connection if the default values aren't correct:
 
    ```
-   ES_INDEX=nci_cohort_data ES_HOSTS=https://es.example.com:9200 npm run index
+   ES_INDEX=nci_cohort_data ES_HOSTS=https://es.example.com:9200 npm run reindex
    ```
 
    ### Configuring the reindex script
