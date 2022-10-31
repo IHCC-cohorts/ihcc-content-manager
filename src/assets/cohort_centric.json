@@ -92,7 +92,7 @@
           "european_or_white": { "type": "keyword" },
           "hispanic_latino_or_spanish": { "type": "keyword" },
           "middle_eastern_or_north_african": { "type": "keyword" },
-          "other": { "type": "boolean" }
+          "other": { "type": "keyword" }
         }
       },
       "countries": {
@@ -167,11 +167,11 @@
       },
       "type_of_cohort": {
         "properties": {
-          "case_control": { "type": "boolean" },
-          "cross_sectional": { "type": "boolean" },
-          "longitudinal": { "type": "boolean" },
-          "health_records": { "type": "boolean" },
-          "other": { "type": "boolean" }
+          "case_control": { "type": "keyword" },
+          "cross_sectional": { "type": "keyword" },
+          "longitudinal": { "type": "keyword" },
+          "health_records": { "type": "keyword" },
+          "other": { "type": "keyword" }
         }
       },
       "website": {

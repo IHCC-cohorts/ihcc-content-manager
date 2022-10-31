@@ -5,7 +5,7 @@ Simple ETL service to add cohort data to the IHCC data portal. This application 
 1. Command line service that runs a script to recreate the ES index and populate the cohort data.
 1. Run an express API server that will recreate the ES index on startup.
 
-   > NOTE: The intention of the server was to provide an API endpoint to reindex ES on command, but this has never been created. Since no authentication system was created for this poject it was determined that running a web service to reindex the data was an unecessary risk.
+   > NOTE: The intention of the server was to provide an API endpoint to reindex ES on command, but this has never been created. Since no authentication system was created for this project it was determined that running a web service to reindex the data was an unecessary risk.
    >
    > Therefore, the API server mode of this is a placeholder for future (optional) development
 

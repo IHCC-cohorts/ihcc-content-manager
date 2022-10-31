@@ -27,7 +27,7 @@ type MappingShape = {
     european_or_white: string;
     hispanic_latino_or_spanish: string;
     middle_eastern_or_north_african: string;
-    other: boolean;
+    other: string;
   };
   countries: string[];
   current_enrollment: number;
@@ -54,11 +54,11 @@ type MappingShape = {
   };
   target_enrollment?: number;
   type_of_cohort: {
-    case_control: boolean;
-    cross_sectional: boolean;
-    longitudinal: boolean;
-    health_records: boolean;
-    other: boolean;
+    case_control: string;
+    cross_sectional: string;
+    longitudinal: string;
+    health_records: string;
+    other: string;
   };
   website?: string;
 };
@@ -237,7 +237,7 @@ const toEsDocument = (allData: Raw[]) => {
           middle_eastern_or_north_african: transformPercentRangeString(
             rawEntry.cohort_ancestry?.middle_eastern_or_north_african
           ),
-          other: transformYesNoBoolean(rawEntry.cohort_ancestry?.other),
+          other: transformPercentRangeString(rawEntry.cohort_ancestry?.other),
         },
         countries:
           rawEntry.countries?.map((country) => {
@@ -313,19 +313,15 @@ const toEsDocument = (allData: Raw[]) => {
         },
         target_enrollment: rawEntry.target_enrollment,
         type_of_cohort: {
-          case_control: transformYesNoBoolean(
-            rawEntry.type_of_cohort?.case_control
-          ),
-          cross_sectional: transformYesNoBoolean(
-            rawEntry.type_of_cohort?.cross_sectional
-          ),
-          longitudinal: transformYesNoBoolean(
-            rawEntry.type_of_cohort?.longitudinal
-          ),
-          health_records: transformYesNoBoolean(
-            rawEntry.type_of_cohort?.health_records
-          ),
-          other: transformYesNoBoolean(rawEntry.type_of_cohort?.other),
+          case_control:
+            transformYesNoOrUnknown(rawEntry.type_of_cohort?.case_control),
+          cross_sectional:
+            transformYesNoOrUnknown(rawEntry.type_of_cohort?.cross_sectional),
+          longitudinal:
+            transformYesNoOrUnknown(rawEntry.type_of_cohort?.longitudinal),
+          health_records:
+            transformYesNoOrUnknown(rawEntry.type_of_cohort?.health_records),
+          other: transformYesNoOrUnknown(rawEntry.type_of_cohort?.other),
         },
         website:
           (
@@ -350,6 +346,25 @@ function transformYesNoBoolean(input?: string): boolean {
   return input?.toLowerCase().match(/yes/g) ? true : false;
 }
 
+function transformYesNoOrUnknown(input?: string): string {
+    // Yes, No and Unknown replacement values
+    const NO_STRING_VALUE = "No";
+    const YES_STRING_VALUE = "Yes";
+    const UKNOWN_VALUE = 'Unknown'
+
+    switch (input?.trim().toLowerCase()){
+      case 'yes':
+        return YES_STRING_VALUE;
+      case 'no':
+        return NO_STRING_VALUE;
+      case 'unknown':
+        return UKNOWN_VALUE;
+      // fallthrough to default
+      default:
+        return UKNOWN_VALUE;
+    }
+}
+
 function transformPercentRangeString(input?: string): string {
   // Yes and No replacement values
   const NO_STRING_VALUE = "0%";
@@ -363,6 +378,8 @@ function transformPercentRangeString(input?: string): string {
       return NO_STRING_VALUE;
     case input === "No":
       return NO_STRING_VALUE;
+    case input === 'Unknown':
+      return YES_STRING_VALUE;
     default:
       return _.isEmpty(input) || !_.isString(input)
         ? NO_STRING_VALUE
