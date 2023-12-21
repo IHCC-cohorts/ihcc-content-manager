@@ -65,7 +65,7 @@
           "genomic_data_wes": { "type": "keyword" },
           "genomic_data_array": { "type": "keyword" },
           "genomic_data_other": { "type": "keyword" },
-          "demographic_data": { "type": "boolean" },
+          "demographic_data": { "type": "keyword" },
           "imaging_data": { "type": "keyword" },
           "participants_address_or_geocode_data": { "type": "keyword" },
           "electronic_health_record_data": { "type": "keyword" },
