@@ -10,7 +10,7 @@ type MappingShape = {
     genomic_data_wes: string;
     genomic_data_array: string;
     genomic_data_other: string;
-    demographic_data: boolean;
+    demographic_data: string;
     imaging_data: string;
     participants_address_or_geocode_data: string;
     electronic_health_record_data: string;
@@ -192,7 +192,7 @@ const toEsDocument = (allData: Raw[]) => {
           genomic_data_other: transformPercentRangeString(
             rawEntry.available_data_types?.genomic_data_other
           ),
-          demographic_data: transformYesNoBoolean(
+          demographic_data: transformPercentRangeString(
             rawEntry.available_data_types?.demographic_data
           ),
           imaging_data: transformPercentRangeString(
